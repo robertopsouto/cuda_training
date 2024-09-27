@@ -1,11 +1,10 @@
 ## Petrobras CUDA Training
-
-### **Module 0: GPU Architecture Overview**
-1. **GPU Architecture Overview**
+     
+### **Module 1: Introduction to CUDA C Programming (Pre-Training)**
+0. **GPU Architecture Overview**
    - **Fermi, Kepler, Maxwell, Pascal, Volta, Ampere, Hopper Architectures** - Understanding NVIDIA GPU architectures' evolution and key features.
    - **Execution Model** - How threads and blocks are executed on multiprocessors.
      
-### **Module 1: Introduction to CUDA C Programming (Pre-Training)**
 1. **Overview of CUDA**
    - **What is CUDA?** - Introduction to CUDA architecture and its purpose in general-purpose computing.
    - **CUDA C/C++ Basics** - Understanding the extensions to standard C/C++ for heterogeneous programming.
