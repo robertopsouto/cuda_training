@@ -1,4 +1,4 @@
-Based on the attached files, here is a suggested index for a training program based on the content:
+## Petrobras CUDA Training
 
 ### **Module 0: GPU Architecture Overview**
 1. **GPU Architecture Overview**
