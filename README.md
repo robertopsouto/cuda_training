@@ -5,7 +5,7 @@
    - **Fermi, Kepler, Maxwell, Pascal, Volta, Ampere, Hopper Architectures** - Understanding the evolution and key features of NVIDIA GPU architectures.
    - **Execution Model** - How threads and blocks are executed on multiprocessors.
      
-### **Module 1: Introduction to CUDA C Programming**
+### **Module 1: Introduction to CUDA C Programming (Pre-Training)**
 1. **Overview of CUDA**
    - **What is CUDA?** - Introduction to CUDA architecture and its purpose in general-purpose computing.
    - **CUDA C/C++ Basics** - Understanding the extensions to standard C/C++ for heterogeneous programming.
