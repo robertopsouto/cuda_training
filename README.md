@@ -2,7 +2,7 @@
 
 ### **Module 0: GPU Architecture Overview**
 1. **GPU Architecture Overview**
-   - **Fermi, Kepler, Maxwell, Pascal, Volta, Ampere, Hopper Architectures** - Understanding the evolution and key features of NVIDIA GPU architectures.
+   - **Fermi, Kepler, Maxwell, Pascal, Volta, Ampere, Hopper Architectures** - Understanding NVIDIA GPU architectures' evolution and key features.
    - **Execution Model** - How threads and blocks are executed on multiprocessors.
      
 ### **Module 1: Introduction to CUDA C Programming (Pre-Training)**
@@ -29,11 +29,28 @@
    - **Launch Configuration** - Determining the optimal number of threads and blocks to launch.
 
 2. **Memory Hierarchy and Access Patterns**
-   - **Local Storage, Shared Memory, and Global Memory** - Understanding the different types of memory and their characteristics.
+   **Local Storage, Shared Memory, and Global Memory**: Understand the different types of memory and their characteristics.
    - **Caching and Non-Caching Loads** - How caching affects memory access patterns and performance.
    - **Coalescing and Bank Conflicts** - Strategies for optimizing memory access patterns to maximize throughput.
 
-### **Module 3: Atomics, Reductions, and Warp Shuffle**
+3. **Exercise**   
+
+### **Module 3: Unified Memory**
+1. **Unified Memory Basics**
+   - **Introduction to Unified Memory** - Understanding the concept and benefits of unified memory.
+   - **Managed Memory Allocation** - Using `cudaMallocManaged` and accessing managed memory from CPU and GPU.
+
+2. **Use Cases**
+   - **Deep Copy and Linked Lists** - Simplifying complex data structures with unified memory.
+   - **C++ Objects** - Overloading `new` and `delete` for managed memory.
+
+3. **Demand Paging and Oversubscription**
+   - **Pascal and Beyond** - Understanding demand paging and GPU memory oversubscription.
+   - **Performance Tuning** - Using prefetching and memory hints for optimal performance.
+
+4. **Exercise**
+   
+### **Module 4: Atomics, Reductions, and Warp Shuffle**
 1. **Atomics and Reductions**
    - **Atomic Operations** - Introduction to atomic functions and their use in parallel reductions.
    - **Classical Parallel Reduction** - Understanding tree-based reduction methods and their implementation.
@@ -47,17 +64,14 @@
    - **Introduction to Cooperative Groups** - Understanding the concept of cooperative groups and their levels (block, grid, multi-grid)[3].
    - **Cooperative Group Functions** - Using `__syncthreads`, `this_thread_block`, `this_grid`, and `this_multi_grid`.
 
-### **Module 4: Unified Memory**
-1. **Unified Memory Basics**
-   - **Introduction to Unified Memory** - Understanding the concept and benefits of unified memory.
-   - **Managed Memory Allocation** - Using `cudaMallocManaged` and accessing managed memory from CPU and GPU.
+4. **Exercise**
+   
+### **Module 5: CUDA Concurrency and Cooperative Groups**
 
-2. **Use Cases**
-   - **Deep Copy and Linked Lists** - Simplifying complex data structures with unified memory.
-   - **C++ Objects** - Overloading `new` and `delete` for managed memory.
+### **Module 6: Thurst**
 
-3. **Demand Paging and Oversubscription**
-   - **Pascal and Beyond** - Understanding demand paging and GPU memory oversubscription.
-   - **Performance Tuning** - Using prefetching and memory hints for optimal performance.
-
-### **Module 5: GPU Performance Analysis**
+### **Module 7: **
+### **Module 8: **
+### **Module 9: **
+### **Module 10: **
+### **Module 11: **
