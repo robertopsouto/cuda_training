@@ -93,6 +93,10 @@
 
 ### **Module 9: GPU Performance Analysis**
 
-### **Module 10: **
+### **Module 10: Coding From Scratch a Finite-difference Propagation Kernel**
 
-### **Module 11: **
+### **Module 11: EnergySDK Samples Optimizations Discussion**
+   - **RTM**
+   - **FWI**
+   - **SRME**
+   - **Kirchhoff**
