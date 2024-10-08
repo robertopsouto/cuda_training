@@ -1,25 +1,25 @@
 ## Petrobras CUDA Training
      
 ### **Module 0: Introduction to CUDA C Programming (Pre-Training)**
-0. **GPU Architecture Overview**
+1. **GPU Architecture Overview**
    - Ampere & Hopper Architectures
    - CUDA Execution Model
      
-1. **Overview of CUDA**
+2. **Overview of CUDA**
    - What is CUDA?
    - CUDA C/C++ Basics
    - Heterogeneous Computing
 
-2. **CUDA Programming Fundamentals**
+3. **CUDA Programming Fundamentals**
    - GPU Kernels
    - Memory Management
    - Parallel Programming
 
-3. **Vector Addition Example**
+4. **Vector Addition Example**
    - Parallel Vector Addition
    - Thread and Block Configuration
 
-4. **Exercise**
+5. **Exercise**
 
 ### **Module 1: Fundamental CUDA Optimization**
 
