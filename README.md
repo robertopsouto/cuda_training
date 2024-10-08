@@ -2,7 +2,7 @@
      
 ### **Module 0: Introduction to CUDA C Programming (Pre-Training)**
 0. **GPU Architecture Overview**
-   - Ampere, Hopper Architectures
+   - Ampere & Hopper Architectures
    - CUDA Execution Model
      
 1. **Overview of CUDA**
