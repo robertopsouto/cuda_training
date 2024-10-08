@@ -95,7 +95,7 @@
 
 ### **Module 8: Coding From Scratch a Finite-difference Propagation Kernel**
 
-### **Module 11: EnergySDK Samples Optimizations Discussion**
+### **Module 9: EnergySDK Samples Optimizations Discussion**
    - **RTM**
    - **FWI**
    - **SRME**
