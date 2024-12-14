@@ -11,7 +11,6 @@ column sums correct!
 
 After editing the code, compile it using the following:
 
-```
 `$ module load cuda/9.1.85`
 
 `$ nvcc -o matrix_sums matrix_sums.cu`
