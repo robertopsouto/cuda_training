@@ -2,7 +2,7 @@
 
 ## Matrix row/Column sums
 
-Your first task is to create a simple matrix row and column sum application in CUDA. The code skeleton is already given to you in matrix_sums.cu. Edit that file, paying attention to the FIXME locations so that the output runs such as:
+Your first task is to create a simple matrix row and column sum application in CUDA. The code skeleton is already given to you in `matrix_sums.cu`. Edit that file, paying attention to the FIXME locations so that the output runs such as:
 
 ```
 row sums correct!
