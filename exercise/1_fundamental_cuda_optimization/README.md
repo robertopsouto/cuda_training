@@ -12,11 +12,12 @@ column sums correct!
 After editing the code, compile it using the following:
 
 `$ module load cuda/9.1.85`
+
 `$ nvcc -o matrix_sums matrix_sums.cu`
 
 The module load command selects a CUDA compiler for your use. The module load command must only be done once per session/login.  nvcc is the CUDA compiler invocation command. The syntax is generally similar to gcc/g++
 
-To run your code, we will use a straightforward slurm command:
+To run your code, we will use a straightforward Slurm command:
 
 `srun -N 1 -p hsw_p100 ./matrix_sums`
 
