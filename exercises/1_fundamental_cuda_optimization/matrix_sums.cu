@@ -23,7 +23,7 @@ __global__ void row_sums(const float *A, float *sums, size_t ds){
   if (idx < ds){
     float sum = 0.0f;
     for (size_t i = 0; i < ds; i++)
-      sum += A[FIXME]         // write a for loop that will cause the thread to iterate across a row, keeeping a running sum, and write the result to sums
+      sum += A[FIXME]         // write a for loop that will cause the thread to iterate across a row, keeping a running sum, and write the result to sums
     sums[idx] = sum;
 }}
 // matrix column-sum kernel
@@ -33,7 +33,7 @@ __global__ void column_sums(const float *A, float *sums, size_t ds){
   if (idx < ds){
     float sum = 0.0f;
     for (size_t i = 0; i < ds; i++)
-      sum += A[FIXME]         // write a for loop that will cause the thread to iterate down a column, keeeping a running sum, and write the result to sums
+      sum += A[FIXME]         // write a for loop that will cause the thread to iterate down a column, keeping a running sum, and write the result to sums
     sums[idx] = sum;
 }}
 bool validate(float *data, size_t sz){
