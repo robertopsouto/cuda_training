@@ -12,7 +12,7 @@ column sums correct!
 After editing the code, compile it using the following:
 
 ```
-$ module load cuda/9.1.85
+$ module load cuda/12.0
 $ nvcc -o matrix_sums matrix_sums.cu
 ```
 
@@ -21,35 +21,5 @@ The module load command selects a CUDA compiler for your use. The module load co
 To run your code, we will use a straightforward Slurm command:
 
 ```
-$ srun -N 1 -p hsw_p100 ./matrix_sums
+$ srun -p gpu -A <SEU_GRUPO> --gres=gpu:1 ./matrix_sums
 ```
-
-## Profiling
-
-We'll introduce something new: the profiler (in this case, `nvprof`).  We'll use `nvprof` first to time the kernel execution times and then gather some "metric" information that will possibly shed light on our observations.
-
-It's necessary to complete task 1 first. Then, launch `nvprof` as follows:
-
-```
-$ srun -N 1 -p hsw_p100 nvprof ./matrix_sums
-```
-
-What does the output tell you?
-Can you locate the lines that identify the kernel durations?
-Are the kernel durations the same or different?
-Would you expect them to be the same or different?
-
-Next, launch `nvprof` as follows:
-
-```
-$ srun -N 1 -p hsw_p100 nvprof --metrics gld_efficiency ./matrix_sums
-```
-
-In this case, we have asked for the metric "gld_efficiency," which is global load efficiency. This metric corresponds closely to the slides in the presentation that covered memory access patterns, with corresponding percentages of associated "efficiency" of utilization of the memory subsystem (reads from global memory).
-
-Do the kernels (row_sum, column_sum) have the same or different efficiencies?
-Why?
-
-How does this correspond to the observed kernel execution times for the first profiling run?
-
-Can we improve this?  (stay tuned for the next CUDA training session)
