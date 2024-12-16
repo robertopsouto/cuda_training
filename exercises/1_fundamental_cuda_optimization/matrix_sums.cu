@@ -49,8 +49,7 @@ int main(){
   h_sums = new float[DSIZE]();
   for (int i = 0; i < DSIZE*DSIZE; i++)  // initialize matrix in host memory
     h_A[i] = 1.0f;
-  cudaMalloc(&d_A, DSIZE*DSIZE*sizeof(float));  // allocate device space for A
-  FIXME // allocate device space for vector d_sums
+  FIXME  // allocate device space for A and d_sums
   cudaCheckErrors("cudaMalloc failure"); // error checking
   // copy matrix A to device:
   cudaMemcpy(d_A, h_A, DSIZE*DSIZE*sizeof(float), cudaMemcpyHostToDevice);
