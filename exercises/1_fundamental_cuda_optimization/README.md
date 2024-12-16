@@ -23,3 +23,7 @@ To run your code, we will use a straightforward Slurm command:
 ```
 $ srun -p gpu -A <SEU_GRUPO> --gres=gpu:1 ./matrix_sums
 ```
+
+# Instructions for COLAB users
+
+https://colab.research.google.com/drive/10seerH4tF6KUoTvvPvMI8xXamWaxl3y0?usp=sharing
