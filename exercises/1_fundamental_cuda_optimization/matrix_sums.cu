@@ -55,7 +55,9 @@ bool validate(float *data, size_t sz)
 {
   for (size_t i = 0; i < sz; i++)
     if (data[i] != (float)sz)
+    {
       printf("results mismatch at %lu, was: %f, should be: %f\n", i, data[i], (float)sz); return false;
+    }
     return true;
 }
 
