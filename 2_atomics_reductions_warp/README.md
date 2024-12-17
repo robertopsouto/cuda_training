@@ -37,7 +37,7 @@ For this exercise, you are given a fully functional sum-reduction code, similar 
 
 ```
 $ nvcc -o max_reduction max_reduction.cu
-$ srun -p SEDE -A curso --gres=gpu:1 ./max_reduction
+$ srun -p SEDE -A curso --gres=gpu:1 max_reduction
 ```
 
 ## 3 - Revisit `row_sums` from *Lecture 1*
