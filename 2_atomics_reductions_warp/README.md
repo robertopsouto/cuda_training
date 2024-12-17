@@ -18,7 +18,7 @@ The `module load` command selects a CUDA compiler for your use. The `module load
 To run your code, use the following Slurm command:
 
 ```
-$ srun -p SEDE -A curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true reductions
+$ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true reductions
 ```
 
 This will run the code with the profiling in its most basic mode, which is sufficient.  We want to compare kernel execution times. What do you notice about kernel execution times?  You won't see much difference between the parallel reduction with atomics and the warp shuffle with atomics kernel. Can you theorize why this may be? Our objective with these will be to approach theoretical limits. 
@@ -37,7 +37,7 @@ For this exercise, you are given a fully functional sum-reduction code, similar 
 
 ```
 $ nvcc -o max_reduction max_reduction.cu
-$ srun -p SEDE -A curso --gres=gpu:1 max_reduction
+$ srun --reservation=curso --gres=gpu:1 ./max_reduction
 ```
 
 ## 3 - Revisit `row_sums` from *Lecture 1*
@@ -48,7 +48,7 @@ You can start by compiling the code as-is and running the profiler to remind you
 
 ```
 $ nvcc -o matrix_sums matrix_sums.cu
-$ srun -p SEDE -A curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
+$ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
 ```
 
 Remember our top 2 CUDA optimization priorities from the previous session: lots of threads and efficient use of the memory subsystem.  The original `row_sums` kernel misses the mark for the memory objective. What we've learned about reductions should guide you.  There are probably several ways to tackle this:
@@ -70,7 +70,7 @@ After you have completed the work and are getting a successful result, profile t
 
 ```
 $ nvcc -o matrix_sums matrix_sums.cu
-$ srun -p SEDE -A curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
+$ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
 ```
 
 Your actual performance here (compared to the reasonably efficient `column_sums` kernel) will probably depend quite a bit on the algorithm/method you choose. See if you can theorize how the various choices affect efficiency or optimality. 
