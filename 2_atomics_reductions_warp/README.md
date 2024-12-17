@@ -1,5 +1,5 @@
 # GAIA Users
-## Comparing Reductions
+## 1 - Comparing Reductions
 
 For your first task, the code has already been written for you.  We will compare 3 of the reductions given during the presentation:
 - The naive atomic-only reduction
@@ -18,10 +18,10 @@ The `module load` command selects a CUDA compiler for your use. The `module load
 To run your code, use the following Slurm command:
 
 ```
-$ srun -p SEDE -A curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true reductions
+$ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true reductions
 ```
 
-This will run the code with the profiling in its most basic mode, which is sufficient.  We want to compare kernel execution times. What do you notice about kernel execution times?  You won't see much difference between the parallel reduction with atomics and the warp shuffle with atomics kernel. Can you theorize why this may be? Our objective with these will be to approach theoretical limits. 
+This will run the code with the profiling in its most basic mode, which is sufficient.  We want to compare kernel execution times. What do you notice about kernel execution times?  You will see little difference between the parallel reduction with atomics and the warp shuffle with atomics kernel. Can you theorize why this may be? Our objective with these will be to approach theoretical limits. 
 
 The memory bandwidth of the GPU would determine the theoretical limit for a typical reduction. To calculate the attained memory bandwidth of this kernel, divide the total data size in bytes (use `N` from the code in your calculation) by the execution time (which you can get from the profiler). How does this number compare to the memory bandwidth of the GPU you are running on? (You could run `bandwidthTest` sample code to get a proxy/estimate).
 
@@ -31,17 +31,16 @@ Could you recompile and re-run the code with profiling? Is there a significant p
 
 **Bonus**: edit the code to change `N` from `~8M` to `~32M`. Could you recompile and run? What happened? Why?
 
-## Create a Different Reduction (Besides Sum)
+## 2 - Create a Different Reduction (Besides Sum)
 
-For this exercise, you are given a fully functional sum-reduction code, similar to the code used for exercise 1 above, except that we will use the 2-stage reduction method without an atomic finish. If you wish, you can compile and run it as-is to see how it works. Your task is to modify it (*only the kernel*) so that it creates a proper max-finding reduction. That means the kernel should report the maximum value in the data set rather than the sum of the data set.  You are expected to use a similar parallel-sweep-reduction technique.
+For this exercise, you are given a fully functional sum-reduction code, similar to the code used for exercise 1 above, except that we will use the 2-stage reduction method without an atomic finish. You can compile and run it as-is to see how it works. Your task is to modify it (*only the kernel*) so that it creates a proper max-finding reduction. That means the kernel should report the maximum value in the data set rather than the sum of the data set. You are expected to use a similar parallel-sweep-reduction technique.
 
 ```
 $ nvcc -o max_reduction max_reduction.cu
-$ srun -p SEDE -A curso --gres=gpu:1 ./max_reduction
+$ srun --reservation=curso --gres=gpu:1 ./max_reduction
 ```
 
-
-## Revisit `row_sums` from *Lecture 1*
+## 3 - Revisit `row_sums` from *Lecture 1*
 
 For this exercise, start with the `matrix_sums.cu` code from *Lecture 1*.  As you may recall, the `row_sums` kernel read the same data set as the `column_sums` kernel but ran noticeably slower. We now have some ideas on how to fix it. See if you can implement a reduction-per-row to allow the row-sum kernel to approach the performance of the column-sum kernel. There are several ways to tackle this problem. To see one approach, please take a look at the solution.
 
@@ -49,10 +48,10 @@ You can start by compiling the code as-is and running the profiler to remind you
 
 ```
 $ nvcc -o matrix_sums matrix_sums.cu
-$ srun -p SEDE -A curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
+$ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
 ```
 
-Remember our top 2 CUDA optimization priorities from the previous session: lots of threads and efficient use of the memory subsystem.  The original `row_sums` kernel misses the mark for the memory objective. What we've learned about reductions should guide you.  There are probably several ways to tackle this:
+Remember our top 2 CUDA optimization priorities from the previous session: **lots of threads** and **efficient use of the memory subsystem**.  The original `row_sums` kernel misses the mark for the memory objective. What we've learned about reductions should guide you.  There are probably several ways to tackle this:
 
 - Write a straightforward parallel reduction, run it on a row, and use a for-loop to loop the kernel over all rows
 - Assign a warp to each row to perform everything in one kernel call
@@ -71,7 +70,7 @@ After you have completed the work and are getting a successful result, profile t
 
 ```
 $ nvcc -o matrix_sums matrix_sums.cu
-$ srun -p SEDE -A curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
+$ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
 ```
 
 Your actual performance here (compared to the reasonably efficient `column_sums` kernel) will probably depend quite a bit on the algorithm/method you choose. See if you can theorize how the various choices affect efficiency or optimality. 
