@@ -1,5 +1,5 @@
 # GAIA Users
-## Comparing Reductions
+## 1 - Comparing Reductions
 
 For your first task, the code has already been written for you.  We will compare 3 of the reductions given during the presentation:
 - The naive atomic-only reduction
@@ -31,7 +31,7 @@ Could you recompile and re-run the code with profiling? Is there a significant p
 
 **Bonus**: edit the code to change `N` from `~8M` to `~32M`. Could you recompile and run? What happened? Why?
 
-## Create a Different Reduction (Besides Sum)
+## 2 - Create a Different Reduction (Besides Sum)
 
 For this exercise, you are given a fully functional sum-reduction code, similar to the code used for exercise 1 above, except that we will use the 2-stage reduction method without an atomic finish. If you wish, you can compile and run it as-is to see how it works. Your task is to modify it (*only the kernel*) so that it creates a proper max-finding reduction. That means the kernel should report the maximum value in the data set rather than the sum of the data set.  You are expected to use a similar parallel-sweep-reduction technique.
 
@@ -40,8 +40,7 @@ $ nvcc -o max_reduction max_reduction.cu
 $ srun -p SEDE -A curso --gres=gpu:1 ./max_reduction
 ```
 
-
-## Revisit `row_sums` from *Lecture 1*
+## 3 - Revisit `row_sums` from *Lecture 1*
 
 For this exercise, start with the `matrix_sums.cu` code from *Lecture 1*.  As you may recall, the `row_sums` kernel read the same data set as the `column_sums` kernel but ran noticeably slower. We now have some ideas on how to fix it. See if you can implement a reduction-per-row to allow the row-sum kernel to approach the performance of the column-sum kernel. There are several ways to tackle this problem. To see one approach, please take a look at the solution.
 
