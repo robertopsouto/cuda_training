@@ -1,3 +1,4 @@
+# GAIA Users
 ## Comparing Reductions
 
 For your first task, the code has already been written for you.  We will compare 3 of the reductions given during the presentation:
@@ -75,4 +76,7 @@ $ srun -p SEDE -A curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-me
 
 Your actual performance here (compared to the reasonably efficient `column_sums` kernel) will probably depend quite a bit on the algorithm/method you choose. See if you can theorize how the various choices affect efficiency or optimality. 
 
-If you end up with a solution where the `row_sums` kernel actually runs faster than the `column_sums` kernel, see if you can theorize why this may be. Remember the two CUDA optimization priorities, and use these to guide your thinking.
+If you end up with a solution where the `row_sums` kernel runs faster than the `column_sums` kernel, see if you can theorize why this may be the case. Remember the two CUDA optimization priorities, and use these to guide your thinking.
+
+# COLAB Users
+[https://colab.research.google.com/drive/1MWozOyzm_87ScuKAQu9knWZeZf3KUvX8?usp=sharing](https://colab.research.google.com/drive/1MWozOyzm_87ScuKAQu9knWZeZf3KUvX8?usp=sharing)
