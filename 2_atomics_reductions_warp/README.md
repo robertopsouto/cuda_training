@@ -21,7 +21,7 @@ To run your code, use the following Slurm command:
 $ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true reductions
 ```
 
-This will run the code with the profiling in its most basic mode, which is sufficient.  We want to compare kernel execution times. What do you notice about kernel execution times?  You won't see much difference between the parallel reduction with atomics and the warp shuffle with atomics kernel. Can you theorize why this may be? Our objective with these will be to approach theoretical limits. 
+This will run the code with the profiling in its most basic mode, which is sufficient.  We want to compare kernel execution times. What do you notice about kernel execution times?  You will see little difference between the parallel reduction with atomics and the warp shuffle with atomics kernel. Can you theorize why this may be? Our objective with these will be to approach theoretical limits. 
 
 The memory bandwidth of the GPU would determine the theoretical limit for a typical reduction. To calculate the attained memory bandwidth of this kernel, divide the total data size in bytes (use `N` from the code in your calculation) by the execution time (which you can get from the profiler). How does this number compare to the memory bandwidth of the GPU you are running on? (You could run `bandwidthTest` sample code to get a proxy/estimate).
 
@@ -33,7 +33,7 @@ Could you recompile and re-run the code with profiling? Is there a significant p
 
 ## 2 - Create a Different Reduction (Besides Sum)
 
-For this exercise, you are given a fully functional sum-reduction code, similar to the code used for exercise 1 above, except that we will use the 2-stage reduction method without an atomic finish. If you wish, you can compile and run it as-is to see how it works. Your task is to modify it (*only the kernel*) so that it creates a proper max-finding reduction. That means the kernel should report the maximum value in the data set rather than the sum of the data set.  You are expected to use a similar parallel-sweep-reduction technique.
+For this exercise, you are given a fully functional sum-reduction code, similar to the code used for exercise 1 above, except that we will use the 2-stage reduction method without an atomic finish. You can compile and run it as-is to see how it works. Your task is to modify it (*only the kernel*) so that it creates a proper max-finding reduction. That means the kernel should report the maximum value in the data set rather than the sum of the data set. You are expected to use a similar parallel-sweep-reduction technique.
 
 ```
 $ nvcc -o max_reduction max_reduction.cu
@@ -51,7 +51,7 @@ $ nvcc -o matrix_sums matrix_sums.cu
 $ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
 ```
 
-Remember our top 2 CUDA optimization priorities from the previous session: lots of threads and efficient use of the memory subsystem.  The original `row_sums` kernel misses the mark for the memory objective. What we've learned about reductions should guide you.  There are probably several ways to tackle this:
+Remember our top 2 CUDA optimization priorities from the previous session: **lots of threads** and **efficient use of the memory subsystem**.  The original `row_sums` kernel misses the mark for the memory objective. What we've learned about reductions should guide you.  There are probably several ways to tackle this:
 
 - Write a straightforward parallel reduction, run it on a row, and use a for-loop to loop the kernel over all rows
 - Assign a warp to each row to perform everything in one kernel call
