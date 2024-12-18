@@ -30,10 +30,12 @@ We will introduce a new tool—the `nsys profile` profiler. First, we will use `
 
 Before proceeding, make sure you have completed Task 1. Then, use the following command to launch `nsys profile`: (*You may wish to expand your terminal window to more easily read the output*)
 
-´´´
+```
 srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true matrix_sums
-´´´
+```
+
 Review the generated output:
+
 - Which lines report the kernel execution durations?
 - Do the reported kernel durations appear to be the same or different?
 - Given your understanding, would you expect the durations to be identical or vary?
