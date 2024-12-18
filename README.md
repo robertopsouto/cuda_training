@@ -16,7 +16,7 @@
 
 3. **Exercise**
    
-### **DAY 2: Atomics, Reductions, Warp Shuffle, CG**
+### **DAY 2: Atomics, Reductions, Warp Shuffle**
 1. **Atomics and Reductions**
    - Atomic Operations
    - Classical Parallel Reduction
@@ -40,6 +40,12 @@
 
 ### **DAY 4: CUDA Performance Optimization**
 
-[CUDA Performance Optimization](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62191/)
+A different perspective of all the delivered content, using the GTC presentation as a baseline [CUDA Performance Optimization.](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62191/)
 
-### **DAY 5: Practical Advice, code diving**
+### **DAY 5: Practical advice, code diving**
+
+## Nsight Systems & Nsight Compute
+
+To proper open ".nsys-rep" files, please download the tool **Nsight Systems** [[link](https://developer.nvidia.com/nsight-systems/get-started)]
+
+Similarly, use **Nsight Compute** tool to open ".ncu-rep" files [[link](https://developer.nvidia.com/tools-overview/nsight-compute/get-started)].
