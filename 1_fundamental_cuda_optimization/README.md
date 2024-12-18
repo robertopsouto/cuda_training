@@ -21,7 +21,7 @@ The module load command selects a CUDA compiler for your use. The module load co
 To run your code, we will use a straightforward Slurm command:
 
 ```
-$ srun -p SEDE -A curso --gres=gpu:1 ./matrix_sums
+$ srun --reservation=curso --gres=gpu:1 matrix_sums
 ```
 
 ## 2 - Profiling
