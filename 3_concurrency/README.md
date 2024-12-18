@@ -7,7 +7,7 @@ You are given a code for your first task that performs a silly computation eleme
 ```
 $ module load cuda/12.0
 $ nvcc -o overlap overlap.cu
-$ srun --reservation=curso --gres=gpu:1 ./overlap 
+$ srun --reservation=curso --gres=gpu:1 overlap 
 ```
 
 In this case, the output will show the elapsed time of the non-overlapped version of the code. This code copies the entire vector to the device, launches the processing kernel, and copies the whole vector back to the host. Also, try the profiling:
