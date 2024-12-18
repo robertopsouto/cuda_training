@@ -3,46 +3,55 @@
 ### **DAY 1: Fundamental CUDA Optimization**
 
 1. **Latency Hiding**
-   - Thread and Warp Scheduling
-   - Launch Configuration
+   - Thread and warp scheduling
+   - Launch configuration
 
 2. **Memory Hierarchy and Access Patterns**
-   - Local Storage, Shared Memory, and Global Memory
+   - Local storage, shared memory, and global memory
      
 3. **Understanding Bottlenecks**
    - Memory-bound vs compute-bound codes
-   - Extracting Bandwidth
-   -  Memory Alignment
+   - Extracting bandwidth
+   - Memory alignment
 
-3. **Exercise**
+4. **Assignment**
    
 ### **DAY 2: Atomics, Reductions, Warp Shuffle**
 1. **Atomics and Reductions**
-   - Atomic Operations
-   - Classical Parallel Reduction
-   - Warp Shuffle
+   - Atomic operations
+   - Classical parallel reduction
+   - Parallel reduction + atomics
 
 2. **Warp Shuffle Techniques**
-   - Warp-Level Reduction
-   - Broadcast and Prefix Sum
+   - Warp-Level reduction
+   - Reduction with warp shuffle
 
-3. **Cooperative Groups**
-   - Introduction to Cooperative Groups
-   - Cooperative Group Functions
-   - C++ Atomics
-
-4. **Exercise**
+3. **Assignment**
    
 ### **DAY 3: CUDA Concurrency**
 1. **Pinned Memory**
+   - Definition and benefits
+   - Usage and functions
+   - Implications for host memory
+     
 2. **CUDA Streams**
+   - Overview, purpose, and semantics
+   - Creation, Usage, and copy-compute overlap
+   - Stream behavior examples and default stream considerations
+     
 3. **Multi-GPU Concurrency**
-
+    - Device management
+    - Streams across multiple GPUs
+    - Device-to-device data copying
+    - Peer-to-peer transfers
+      
+4. **Assignment**
+   
 ### **DAY 4: CUDA Performance Optimization**
 
-A different perspective of all the delivered content, using the GTC presentation as a baseline [CUDA Performance Optimization.](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62191/)
+An alternate perspective on all delivered materials, using the GTC presentation as a baseline for CUDA performance optimization [CUDA Performance Optimization.](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62191/)
 
-### **DAY 5: Practical advice, code diving**
+### **DAY 5: Practical Advice, Example Codes Diving (Wave Propagators)**
 
 ## Nsight Systems & Nsight Compute
 
