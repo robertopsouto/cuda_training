@@ -33,15 +33,18 @@
    - Definition and Benefits
    - Usage and Functions
    - Implications for Host Memory
+     
 2. **CUDA Streams**
    - Overview, Purpose, and Semantics
    - Creation, Usage, and Copy-compute overlap
    - Stream behavior examples and Default stream considerations
+     
 3. **Multi-GPU Concurrency**
     - Device management
     - Streams across multiple GPUs
     - Device-to-device data copying
     - Peer-to-peer transfers
+      
 4. **Assignment**
    
 ### **DAY 4: CUDA Performance Optimization**
