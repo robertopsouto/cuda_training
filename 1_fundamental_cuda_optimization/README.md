@@ -26,7 +26,7 @@ $ srun --reservation=curso --gres=gpu:1 matrix_sums
 
 ## 2 - Profiling
 
-We will introduce a new tool - the `nsys profile`. First, we will use `nsys profile` to measure kernel execution times and then gather additional metrics to help interpret our observations.
+We will introduce a new tool, the `nsys profile` and use it to measure kernel execution times and then gather additional metrics to help interpret our observations.
 
 Before proceeding, make sure you have completed Task 1. Then, use the following command to launch `nsys profile`: (*You may wish to expand your terminal window to more easily read the output*)
 
