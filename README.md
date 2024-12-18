@@ -14,35 +14,41 @@
    - Extracting Bandwidth
    -  Memory Alignment
 
-3. **Exercise**
+4. **Assignment**
    
 ### **DAY 2: Atomics, Reductions, Warp Shuffle**
 1. **Atomics and Reductions**
    - Atomic Operations
    - Classical Parallel Reduction
-   - Warp Shuffle
+   - Parallel Reduction + Atomics
 
 2. **Warp Shuffle Techniques**
    - Warp-Level Reduction
-   - Broadcast and Prefix Sum
+   - Reduction With Warp Shuffle
 
-3. **Cooperative Groups**
-   - Introduction to Cooperative Groups
-   - Cooperative Group Functions
-   - C++ Atomics
-
-4. **Exercise**
+3. **Assignment**
    
 ### **DAY 3: CUDA Concurrency**
 1. **Pinned Memory**
+   - Definition and Benefits
+   - Usage and Functions
+   - Implications for Host Memory
 2. **CUDA Streams**
+   - Overview, Purpose, and Semantics
+   - Creation, Usage, and Copy-compute overlap
+   - Stream behavior examples and Default stream considerations
 3. **Multi-GPU Concurrency**
-
+    - Device management
+    - Streams across multiple GPUs
+    - Device-to-device data copying
+    - Peer-to-peer transfers
+4. **Assignment**
+   
 ### **DAY 4: CUDA Performance Optimization**
 
 A different perspective of all the delivered content, using the GTC presentation as a baseline [CUDA Performance Optimization.](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62191/)
 
-### **DAY 5: Practical advice, code diving**
+### **DAY 5: Practical Advice, Example Codes Diving (Wave Propagators)**
 
 ## Nsight Systems & Nsight Compute
 
