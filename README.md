@@ -49,7 +49,7 @@
    
 ### **DAY 4: CUDA Performance Optimization**
 
-A different perspective of all the delivered content, using the GTC presentation as a baseline [CUDA Performance Optimization.](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62191/)
+An alternate perspective on all delivered materials, using the GTC presentation as a baseline for CUDA performance optimization [CUDA Performance Optimization.](https://www.nvidia.com/en-us/on-demand/session/gtc24-s62191/)
 
 ### **DAY 5: Practical Advice, Example Codes Diving (Wave Propagators)**
 
