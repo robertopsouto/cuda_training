@@ -16,11 +16,9 @@ In this case, the output will show the elapsed time of the non-overlapped versio
 $ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true overlap
 ```
 
-This `nsys profile` output should show you the sequence of operations (`cudaMemcpy` Host to Device, kernel call, and `cudaMemcpy` Device To Host). The kernel has an initial "warm-up" run; disregard this.  You should be able to witness that each operation's start and duration indicate no overlap.
+Your objective is to create a fully overlapped code version. Use your knowledge of streams to make a version of the code that will issue the work in chunks, and for each chunk, perform the copy to device, kernel launch, and copy to host in a single stream, then modify the stream for the next chunk.
 
-Your objective is to create a fully overlapped code version for you. Use your knowledge of streams to make a version of the code that will issue the work in chunks, and for each chunk, perform the copy to device, kernel launch, and copy to host in a single stream, then modify the stream for the next chunk.
-
-The work has been started for you in the code section after the `#ifdef` statement.  Look for the `FIXME` tokens, and replace each `FIXME` with the appropriate code to complete this task.
+The work has been started for you in the code section after the `#ifdef` statement. Look for the `FIXME` tokens, and replace each `FIXME` with the appropriate code to complete this task.
 
 When you have something ready to test, compile it with this additional switch:
 
@@ -28,7 +26,7 @@ When you have something ready to test, compile it with this additional switch:
 $ nvcc -o overlap overlap.cu -DUSE_STREAMS
 ```
 
-A verification check will ensure you have processed the entire vector correctly in chunks.  If you pass the verification test, the program will display the elapsed time of the streamed version. 
+A verification check will ensure you have processed the entire vector correctly in chunks. If you pass the verification test, the program will display the elapsed time of the streamed version. 
 
 You should be able to get to at least 2X faster (i.e., half the duration) of the non-streamed version. You can also run this code with the `nsys profile` using the command given above.  
 
