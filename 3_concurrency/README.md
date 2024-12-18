@@ -46,4 +46,4 @@ You can run the code with:
 $ srun --reservation=curso --gres=gpu:4 multi
 ```
 
-**Hint**: This exercise might be simpler than you think.  You won't need to do anything with streams at all for this.  You'll only need to make a simple modification to each of the for-loops.
+**Hint**: This exercise might be simpler than you think. You won't need to do anything with streams, and you'll only need to make a simple modification to each of the for-loops.
