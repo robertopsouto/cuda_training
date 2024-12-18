@@ -2,7 +2,7 @@
 # GAIA Users
 ## 1 - Investigating Copy-compute Overlap
 
-You are given a code for your first task that performs a silly computation element-wise on a vector.  You can initially compile, run, and profile the code with the following commands:
+You are provided with a code for your initial assignment that performs an element-wise computation on a vector. To begin, you can compile, execute, and profile the code using the following commands:
 
 ```
 $ module load cuda/12.0
@@ -10,17 +10,17 @@ $ nvcc -o overlap overlap.cu
 $ srun --reservation=curso --gres=gpu:1 overlap 
 ```
 
-In this case, the output will show the elapsed time of the non-overlapped version of the code. This code copies the entire vector to the device, launches the processing kernel, and copies the whole vector back to the host. Also, try the profiling:
+In this scenario, the output will display the elapsed execution time for the non-overlapped version of the code. The process involves transferring the entire vector to the device, launching the processing kernel, and then copying the results back to the host. Additionally, consider enabling profiling for further analysis.
 
 ```
 $ srun --reservation=curso --gres=gpu:1 nsys profile --stats=true -t cuda --cuda-memory-usage=true overlap
 ```
 
-Your objective is to create a fully overlapped code version. Use your knowledge of streams to make a version of the code that will issue the work in chunks, and for each chunk, perform the copy to device, kernel launch, and copy to host in a single stream, then modify the stream for the next chunk.
+Your objective is to implement a fully overlapped version of the code. Apply your understanding of CUDA streams to divide the workload into multiple chunks. For each chunk, issue the device transfer, kernel launch, and host transfer within a single stream, then adjust the stream configuration before processing the next chunk.
 
-The work has been started for you in the code section after the `#ifdef` statement. Look for the `FIXME` tokens, and replace each `FIXME` with the appropriate code to complete this task.
+The initial implementation has been provided after the `#ifdef` directive. Locate each `FIXME` comment within the code and replace it with the appropriate code segments necessary to complete the assignment.
 
-When you have something ready to test, compile it with this additional switch:
+When you have code ready for testing, compile it using the following additional switch:
 
 ```
 $ nvcc -o overlap overlap.cu -DUSE_STREAMS
